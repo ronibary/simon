@@ -50,7 +50,7 @@ function checkAnswer(currentLevel) {
       $("body").removeClass("game-over");
     }, 200);
 
-    $("#level-title").text("Game Over, Press Any Key to Restart");
+    $("#level-title").text("Game Over level: " + level + " New Game ▶");
 
     // restart the game
     startOver();
@@ -110,7 +110,16 @@ $(".btn").on("click", function (event) {
 $(document).on("keydown", function () {
   if (!started) {
     //The h1 title starts out saying "Press A Key to Start", when the game has started change this to say "Level 0".
-    $("#level-title").text("Level " + level);
+    //$("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+
+$("#level-title").on("click", function () {
+  if (!started) {
+    //The h1 title starts out saying "Press A Key to Start", when the game has started change this to say "Level 0".
+    //$("#level-title").text("Level " + level);
     nextSequence();
     started = true;
   }
